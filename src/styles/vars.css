@@ -1,0 +1,30 @@
+/* Centralized CSS variables and system color-scheme support */
+:root{
+  --bg: #ffffff;
+  --card: #f7f7f8;
+  --text: #0f1720;
+  --muted: #6b7280;
+  --accent: #2563eb; /* blue-600 */
+  --accent-600: #1e40af;
+  --success: #16a34a;
+  --danger: #dc2626;
+  --border: #e6e6e9;
+  --radius: 12px;
+  --glass: rgba(255,255,255,0.6);
+}
+
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg: #0b1220;
+    --card: #0f1724;
+    --text: #e6eef6;
+    --muted: #9aa6b2;
+    --accent: #60a5fa; /* light blue */
+    --accent-600: #3b82f6;
+    --success: #34d399;
+    --danger: #f87171;
+    --border: #152033;
+    --radius: 12px;
+    --glass: rgba(255,255,255,0.04);
+  }
+}

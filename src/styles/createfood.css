@@ -1,0 +1,81 @@
+@import "./vars.css";
+
+.createfood-shell {
+  min-height: 100vh;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+}
+
+.createfood-card {
+  width: 100%;
+  max-width: 420px;
+  background: var(--card);
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(2,6,23,0.08);
+  padding: 28px 16px 18px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 32px;
+}
+
+.createfood-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.createfood-label {
+  font-size: 15px;
+  color: var(--muted);
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+.createfood-input, .createfood-textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  outline: none;
+  font-size: 16px;
+}
+.createfood-input:focus, .createfood-textarea:focus {
+  box-shadow: 0 0 0 4px rgba(37,99,235,0.06);
+  border-color: var(--accent-600);
+}
+.createfood-btn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 0;
+  font-weight: 600;
+  font-size: 17px;
+  cursor: pointer;
+  margin-top: 10px;
+  box-shadow: 0 2px 8px rgba(37,99,235,0.08);
+  transition: background 0.2s;
+}
+.createfood-btn:hover {
+  background: var(--accent-600);
+}
+
+@media (max-width: 600px) {
+  .createfood-card {
+    max-width: 98vw;
+    padding: 18px 4px 12px 4px;
+  }
+  .createfood-input, .createfood-textarea {
+    font-size: 15px;
+    padding: 10px 10px;
+  }
+  .createfood-btn {
+    font-size: 15px;
+    padding: 10px 0;
+  }
+}
