@@ -1,5 +1,5 @@
 
-import "./app.css"
+
 
 import AppRoutes from './routes/AppRoutes.jsx'
 
