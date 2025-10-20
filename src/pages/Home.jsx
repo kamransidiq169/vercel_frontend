@@ -8,7 +8,7 @@ import { useNavigate,Link } from "react-router-dom";
 //   { id: 3, src: "https://ik.imagekit.io/kamransidiq/7c700c96-6f39-471c-9317-d0d27798b5fc_AYG6CedbD", desc: "Organic ingredients and locally sourced produce for every plate." },
 // ];
 
-export const Home = () => {
+export const HomePage = () => {
   const containerRef = useRef(null);
 const [videos,setVideos]=useState([])
   useEffect(() => {
