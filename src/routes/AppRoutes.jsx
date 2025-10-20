@@ -18,8 +18,8 @@ const AppRoutes = () => (
 			<Route path="/" element={<FirstView />} />
 			<Route path="/user/register" element={<UserRegister />} />
 			<Route path="/user/login" element={<UserLogin />} />
-			<Route path="/foodpartner/register" element={<FoodPartnerRegister />} />
-			<Route path="/foodpartner/login" element={<FoodPartnerLogin />} />
+			<Route path="/fooduser/register" element={<FoodPartnerRegister />} />
+			<Route path="/fooduser/login" element={<FoodPartnerLogin />} />
 			<Route path="/home" element={<Home />} />
 			<Route path="/createfood" element={<CreateFood />} />
 			<Route path="/foodPartner/:id" element={<Profile/>} />
