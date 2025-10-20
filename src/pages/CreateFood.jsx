@@ -22,7 +22,7 @@ export const CreateFood = () => {
     formData.append("description", e.target.description.value);
     formData.append("video", e.target.video.files[0]);
 
-    const response = await axios.post("http://localhost:4000/api/food", formData, {
+    const response = await axios.post("https://vercel-backend-psi-wheat.vercel.app/api/food", formData, {
       withCredentials: true,
     });
     console.log(response.data);

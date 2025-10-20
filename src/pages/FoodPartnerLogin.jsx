@@ -13,7 +13,7 @@ const FoodPartnerLogin = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:4000/api/auth/fooduser/login",
+        "https://vercel-backend-psi-wheat.vercel.app/api/auth/fooduser/login",
         { email, password },
         { withCredentials: true }
       );

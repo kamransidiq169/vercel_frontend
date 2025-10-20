@@ -13,7 +13,7 @@ const Saved = () => {
     const fetchSavedItems = async () => {
       try {
         const response = await axios.post(
-          "http://localhost:4000/api/food/saved",
+          "https://vercel-backend-psi-wheat.vercel.app/api/food/saved",
           {},
           { withCredentials: true }
         );

@@ -17,7 +17,7 @@ const FoodPartnerRegister = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:4000/api/auth/fooduser/register",
+        "https://vercel-backend-psi-wheat.vercel.app/api/auth/fooduser/register",
         { businessName, contactName, phone, address, email, password },
         { withCredentials: true }
       );

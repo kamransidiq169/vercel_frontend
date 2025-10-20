@@ -15,7 +15,7 @@ const UserRegister = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:4000/api/auth/user/register",
+        "https://vercel-backend-psi-wheat.vercel.app/api/auth/user/register",
         { fullName, email, password },
         {
           withCredentials: true,
