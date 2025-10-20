@@ -5,11 +5,11 @@ import UserRegister from "../pages/UserRegister";
 import UserLogin from "../pages/UserLogin";
 import FoodPartnerRegister from "../pages/FoodPartnerRegister";
 import FoodPartnerLogin from "../pages/FoodPartnerLogin";
-import Home from "../pages/Home.jsx";
 import { CreateFood } from "../pages/CreateFood";
 import  Profile  from "../pages/Profile";
 import { FirstView } from "../FirstView";
 import Saved from "../pages/Saved";
+import Home from "../pages/home";
 
 
 const AppRoutes = () => (
