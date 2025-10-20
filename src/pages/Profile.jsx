@@ -35,7 +35,7 @@ const Profile = () => {
     useEffect(() => {
         setLoading(true);
         axios
-            .get(`http://localhost:4000/api/food/${id}`, { withCredentials: true })
+            .get(`https://vercel-backend-psi-wheat.vercel.app/api/food/${id}`, { withCredentials: true })
             .then((res) => {
                 setProfileData(res.data.foodPartner);
                 setVideos(res.data.foodPartner.foodItems || []);
