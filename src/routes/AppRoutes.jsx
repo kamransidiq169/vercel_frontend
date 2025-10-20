@@ -9,7 +9,7 @@ import { CreateFood } from "../pages/CreateFood";
 import  Profile  from "../pages/Profile";
 import { FirstView } from "../FirstView";
 import Saved from "../pages/Saved";
-import { Home } from "../pages/HomePage";
+import { HomePage } from "../pages/HomePage";
 
 
 
@@ -21,7 +21,7 @@ const AppRoutes = () => (
 			<Route path="/user/login" element={<UserLogin />} />
 			<Route path="/fooduser/register" element={<FoodPartnerRegister />} />
 			<Route path="/fooduser/login" element={<FoodPartnerLogin />} />
-			<Route path="/home" element={<Home />} />
+			<Route path="/home" element={<HomePage />} />
 			<Route path="/createfood" element={<CreateFood />} />
 			<Route path="/foodPartner/:id" element={<Profile/>} />
 			<Route path="/saved" element={<Saved/>} />
