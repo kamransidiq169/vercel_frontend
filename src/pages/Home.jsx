@@ -66,14 +66,14 @@ const [videos,setVideos]=useState([])
     };
   }, [videos]);
  useEffect(()=>{
-     axios.get("http://localhost:4000/api/food",{withCredentials:true}).then(res=>{setVideos(res.data.foodItems);
+     axios.get("https://vercel-backend-psi-wheat.vercel.app/api/food",{withCredentials:true}).then(res=>{setVideos(res.data.foodItems);
      }).catch(err=>console.log(err))
  },[])
 
 const handleLikeCount = async (item) => {
   try {
     const response = await axios.post(
-      "http://localhost:4000/api/food/like",
+      "https://vercel-backend-psi-wheat.vercel.app/api/food/like",
       { foodId: item._id },
       { withCredentials: true }
     );
@@ -96,7 +96,7 @@ const handleLikeCount = async (item) => {
 };
 const handleSaveCount = async (item) => {
   try {
-    const response = await axios.post("http://localhost:4000/api/food/save", { foodId: item._id }, { withCredentials: true });
+    const response = await axios.post("https://vercel-backend-psi-wheat.vercel.app/api/food/save", { foodId: item._id }, { withCredentials: true });
 
     const isSavedNow = !!response.data.save;
 
