@@ -9,7 +9,8 @@ import { CreateFood } from "../pages/CreateFood";
 import  Profile  from "../pages/Profile";
 import { FirstView } from "../FirstView";
 import Saved from "../pages/Saved";
-import Home from "../pages/home";
+import { Home } from "../pages/home";
+
 
 
 const AppRoutes = () => (
