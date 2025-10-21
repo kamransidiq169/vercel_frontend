@@ -131,7 +131,7 @@ const UserLogin = () => {
 
         <div style={{ marginTop: "16px", textAlign: "center" }}>
           <a
-            href="/foodpartner/login"
+            href="/fooduser/login"
             style={{
               fontSize: "14px",
               color: "#1D4ED8",

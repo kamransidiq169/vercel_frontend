@@ -67,7 +67,7 @@ const UserRegister = () => {
 
         <div style={{ marginBottom: "20px", textAlign: "center" }}>
           <a
-            href="/foodpartner/register"
+            href="/fooduser/register"
             style={{
               fontSize: "14px",
               color: "#1D4ED8",

@@ -22,7 +22,7 @@ const FoodPartnerRegister = () => {
         { withCredentials: true }
       );
   console.log(response.data);
-  navigate("/foodpartner/login");
+  navigate("/fooduser/login");
     } catch (error) {
       console.error("Registration failed:", error);
     }
