@@ -26,7 +26,7 @@ export const CreateFood = () => {
       withCredentials: true,
     });
     console.log(response.data);
-    navigate("/user/login");
+    navigate("/home");
   };
 
   return (
