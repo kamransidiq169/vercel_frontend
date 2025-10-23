@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 export const CreateFood = () => {
   const navigate = useNavigate();
   const [videoUrl, setVideoUrl] = useState("");
+  const [isUploading, setIsUploading] = useState(false);
+  const [uploadProgress, setUploadProgress] = useState(0);
 
   const handleVideoChange = (e) => {
     const file = e.target.files[0];
@@ -22,11 +24,34 @@ export const CreateFood = () => {
     formData.append("description", e.target.description.value);
     formData.append("video", e.target.video.files[0]);
 
-    const response = await axios.post("https://vercel-backend-psi-wheat.vercel.app/api/food", formData, {
-      withCredentials: true,
-    });
-    console.log(response.data);
-    navigate("/home");
+    try {
+      setIsUploading(true);
+      setUploadProgress(0);
+
+      const response = await axios.post(
+        "https://vercel-backend-psi-wheat.vercel.app/api/food",
+        formData,
+        {
+          withCredentials: true,
+          headers: { "Content-Type": "multipart/form-data" },
+          onUploadProgress: (progressEvent) => {
+            if (progressEvent.total) {
+              const percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
+              setUploadProgress(percentCompleted);
+            }
+          },
+        }
+      );
+      console.log(response.data);
+      // small delay to let the user see 100% if needed
+      setUploadProgress(100);
+      navigate("/home");
+    } catch (err) {
+      console.error("Upload failed:", err);
+      // optionally show an error toast here
+    } finally {
+      setIsUploading(false);
+    }
   };
 
   return (
@@ -89,7 +114,15 @@ export const CreateFood = () => {
           Create Food
         </h2>
 
-        <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
+        {isUploading ? (
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 12, padding: 20 }}>
+            <div style={{ width: 56, height: 56, borderRadius: 9999, border: '6px solid rgba(29,78,216,0.15)', borderTopColor: '#1D4ED8', animation: 'spin 1s linear infinite' }} />
+            <div style={{ fontSize: 16, fontWeight: 600, color: '#1F2937' }}>Uploading...</div>
+            <div style={{ fontSize: 13, color: '#4B5563' }}>{uploadProgress}%</div>
+            <style>{"@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }"}</style>
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
           <div>
             <label htmlFor="video" style={labelStyle}>
               Food Video
@@ -149,24 +182,26 @@ export const CreateFood = () => {
 
           <button
             type="submit"
+            disabled={isUploading}
             style={{
               marginTop: "12px",
               padding: "14px",
               fontSize: "16px",
               fontWeight: "600",
               borderRadius: "10px",
-              backgroundColor: "#1D4ED8",
+              backgroundColor: isUploading ? "#94A3B8" : "#1D4ED8",
               color: "#fff",
-              cursor: "pointer",
+              cursor: isUploading ? "not-allowed" : "pointer",
               border: "none",
               transition: "background 0.3s ease",
             }}
-            onMouseOver={(e) => (e.target.style.backgroundColor = "#1E40AF")}
-            onMouseOut={(e) => (e.target.style.backgroundColor = "#1D4ED8")}
+            onMouseOver={(e) => !isUploading && (e.target.style.backgroundColor = "#1E40AF")}
+            onMouseOut={(e) => !isUploading && (e.target.style.backgroundColor = "#1D4ED8")}
           >
-            Create Food
+            {isUploading ? "Uploading..." : "Create Food"}
           </button>
         </form>
+        )}
       </div>
     </section>
   );
